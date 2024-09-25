@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import configAxios from "../utils/configAxios";
+import { Layout } from "../components/Layout";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -20,7 +21,7 @@ function Home() {
   }
 
   return (
-    <>
+    <Layout>
       <div className="w-[100vw] h-full justify-center items-center flex flex-col px-10 py-8 mt-8">
         <h1 className="text-3xl font-bold">DATA TABLE</h1>
         <div className="flex flex-col">
@@ -91,20 +92,20 @@ function Home() {
                         </td>
                         <td className="text-sm flex justify-between  items-center text-gray-900 font-bold px-6 py-4 space-x-4 whitespace-nowrap">
                           <Link
-                            to={`/users/${data.id}`}
+                            to={`/users/${data._id}`}
                             className="bg-teal-600 text-white px-6 py-2 rounded-lg"
                           >
                             Vista
                           </Link>
                           <Link
-                            to={`/edit-user/${data.id}`}
+                            to={`/edit-user/${data._id}`}
                             className="bg-blue-600 text-white px-6 py-2 rounded-lg"
                           >
                             Editar
                           </Link>
 
                           <Link
-                            onClick={()=>deleteUser(data.id)}
+                            onClick={()=>deleteUser(data._id)}
                             to={"#"}
                             className="bg-red-600 text-white px-6 py-2 rounded-lg"
                           >
@@ -120,7 +121,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

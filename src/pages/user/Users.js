@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import configAxios from "../../utils/configAxios";
+import { Layout } from "../../components/Layout";
 
 function Users() {
   const { id } = useParams();
@@ -11,11 +12,10 @@ function Users() {
     configAxios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
       setUser(res.data);
     });
-  }, [id]); //tiraba un error y agregue id
+  }, []); //ignorar
 
-  console.log(user);
   return (
-    <>
+    <Layout>
       <div className="h-full w-full flex flex-col mt-32 justify-center items-center">
         <Link
           to={`/`}
@@ -30,10 +30,13 @@ function Users() {
                 Name
               </h2>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Email
+                lastname
               </h2>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Phone
+                house
+              </h2>
+              <h2 className="text-white font-bold text-3xl border-black border-b-2">
+                dpi
               </h2>
             </div>
             <div className="w-7/12 flex flex-col space-y-4  ">
@@ -41,16 +44,19 @@ function Users() {
                 {user.name}
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.email}
+                {user.lastname}
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.phone}
+                {user.house}
+              </h2>
+              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
+                {user.dpi}
               </h2>
             </div>
           </div>
         )}
       </div>
-    </>
+    </Layout>
   );
 }
 

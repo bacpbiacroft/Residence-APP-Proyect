@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
 import Add from "./pages/user/Add";
 import Edit from "./pages/user/Edit";
 import Users from "./pages/user/Users";
@@ -12,7 +11,6 @@ import NotFound from "./components/NotFound";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoutes />}>
