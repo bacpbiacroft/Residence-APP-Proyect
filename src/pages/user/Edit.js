@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import configAxios from "../../utils/configAxios";
 
 function Add() {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ function Add() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
+    configAxios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
       setName(res.data.name);
       setLastname(res.data.lastname);
       setHouse(res.data.house);
@@ -27,7 +27,7 @@ function Add() {
 
   function Update(e) {
     e.preventDefault();
-    axios.patch(`http://localhost:8080/visitants/${id}`, data).then(navigate("/"));
+    configAxios.patch(`http://localhost:8080/visitants/${id}`, data).then(navigate("/"));
   }
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">

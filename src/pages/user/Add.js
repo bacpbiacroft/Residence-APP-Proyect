@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import configAxios from "../../utils/configAxios";
 
 function Add() {
   const [name, setName] = useState("");
@@ -16,7 +16,7 @@ function Add() {
 
   function submitForm(e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/visitants", data).then(navigate("/"));
+    configAxios.post("http://localhost:8080/visitants", data).then(navigate("/"));
   }
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">

@@ -1,12 +1,12 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import configAxios from "../utils/configAxios";
 
 function Home() {
   const [users, setUsers] = useState([]);
 
   function loadUsers() {
-    axios.get("http://localhost:8080/visitants").then((res) => {
+    configAxios.get("http://localhost:8080/visitants").then((res) => {
       setUsers(res.data.reverse());
     });
   }
@@ -16,7 +16,7 @@ function Home() {
   }, []);
 
   function deleteUser(id) {
-    axios.delete(`http://localhost:8080/visitants/${id}`).then(loadUsers());
+    configAxios.delete(`http://localhost:8080/visitants/${id}`).then(loadUsers());
   }
 
   return (

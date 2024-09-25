@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import configAxios from "../../utils/configAxios";
 
 function Users() {
   const { id } = useParams();
@@ -8,7 +8,7 @@ function Users() {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
+    configAxios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
       setUser(res.data);
     });
   }, [id]); //tiraba un error y agregue id
