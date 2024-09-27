@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import configAxios from "../../utils/configAxios";
 import { Layout } from "../../components/Layout";
 import { validateDpi } from "../../utils/functions";

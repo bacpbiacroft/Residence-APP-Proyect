@@ -17,106 +17,94 @@ function Home() {
   }, []);
 
   function deleteUser(id) {
-    configAxios.delete(`http://localhost:8080/visitants/${id}`).then(loadUsers());
+    configAxios
+      .delete(`http://localhost:8080/visitants/${id}`)
+      .then(() => loadUsers()); // Fix potential issue: Ensure loadUsers is called as a callback
   }
 
   return (
     <Layout>
-      <div className="w-[100vw] h-full justify-center items-center flex flex-col px-10 py-8 mt-8">
-        <h1 className="text-3xl font-bold">DATA TABLE</h1>
-        <div className="flex flex-col">
-          <div className="overflow-x-auto mt-8 sm:-mx-6 items-center lg:-mx-8">
-            <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-              <div className="overflow-hidden">
-                <table className="min-w-full text-center">
-                  <thead className="border-b bg-[]">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="text-sm font-medium text-white px-6 py-4"
-                      >
-                        ID
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-lg text-white px-6 py-4"
-                      >
-                        Nombre
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-lg text-white px-6 py-4"
-                      >
-                        Apellido
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-lg text-white px-6 py-4"
-                      >
-                       DPI
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-lg text-white px-6 py-4"
-                      >
-                       Numero de Casa
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-lg text-white px-6 py-4"
-                      >
-                        Accion
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="border-black border-b-2">
-                    {users.map((data, index) => (
-                      <tr
-                        key={index}
-                        className="bg-white border-b-2 border-black"
-                      >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                          {index + 1}
-                        </td>
-                        <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {data.name}
-                        </td>
-                        <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {data.lastname}
-                        </td>
-                        <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {data.dpi                          }
-                        </td>
-                        <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {data.house                          }
-                        </td>
-                        <td className="text-sm flex justify-between  items-center text-gray-900 font-bold px-6 py-4 space-x-4 whitespace-nowrap">
+      <div className="w-full h-full flex flex-col items-center">
+        <h1 className="text-xl lg:text-2xl font-bold my-4">Lista de visitantes</h1>
+        <div className="overflow-x-auto w-full">
+          <div className="inline-block min-w-full px-8 lg:px-12[">
+            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      ID
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-1 py-2 lg:px-6 lg:py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Nombre
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      DPI
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Numero de Casa
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Accion
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {users.map((data, index) => (
+                    <tr key={index}>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {index + 1}
+                      </td>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
+                        {data.name} {data.lastname}
+                      </td>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
+                        {data.dpi}
+                      </td>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
+                        {data.house}
+                      </td>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 text-center text-sm font-medium whitespace-nowrap">
+                        <div className="flex flex-col items-center justify-center md:flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4">
                           <Link
                             to={`/users/${data._id}`}
-                            className="bg-teal-600 text-white px-6 py-2 rounded-lg"
+                            className="text-indigo-600 hover:text-indigo-900 border rounded-md border-black w-20 py-3 lg:py-2"
                           >
-                            Vista
+                            Ver
                           </Link>
                           <Link
                             to={`/edit-user/${data._id}`}
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg"
+                            className="text-blue-600 hover:text-blue-900 border rounded-md border-black w-20 py-3 lg:py-2"
                           >
                             Editar
                           </Link>
-
-                          <Link
-                            onClick={()=>deleteUser(data._id)}
-                            to={"#"}
-                            className="bg-red-600 text-white px-6 py-2 rounded-lg"
+                          <button
+                            onClick={() => deleteUser(data._id)}
+                            className="text-red-600 hover:text-red-900 border rounded-md border-black w-20 py-3 lg:py-2"
                           >
                             Eliminar
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
