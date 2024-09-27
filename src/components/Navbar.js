@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="w-ful h-16 flex items-center px-14 justify-between bg-teal-600">
+      <div className="w-ful h-16 flex items-center px-14 justify-between bg-[#F27F0C]">
         <Link
           to={"/"}
           className="text-3xl text-teal-200 font-semibold font-Montesarrat"

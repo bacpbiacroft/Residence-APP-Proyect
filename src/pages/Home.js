@@ -29,7 +29,7 @@ function Home() {
             <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
               <div className="overflow-hidden">
                 <table className="min-w-full text-center">
-                  <thead className="border-b bg-gray-800">
+                  <thead className="border-b bg-[]">
                     <tr>
                       <th
                         scope="col"
