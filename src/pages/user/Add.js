@@ -62,7 +62,7 @@ function Add() {
             placeholder="Ingresa el número de DPI"
           />
           <button
-            className="bg-orange-500 outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"
+            className="bg-[#F7AD19]  outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"
             type="submit"
             onClick={submitForm}
           >

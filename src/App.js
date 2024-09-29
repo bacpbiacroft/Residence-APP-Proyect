@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import NotFound from "./components/NotFound";
 
+
 function App() {
   return (
     <div className="App">

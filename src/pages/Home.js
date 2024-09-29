@@ -60,6 +60,12 @@ function Home() {
                       scope="col"
                       className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
+                      Hora de registro
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
                       Accion
                     </th>
                   </tr>
@@ -79,11 +85,14 @@ function Home() {
                       <td className="px-4 py-2 lg:px-6 lg:py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
                         {data.house}
                       </td>
+                      <td className="px-4 py-2 lg:px-6 lg:py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
+                        {data.createdAt}
+                      </td>
                       <td className="px-4 py-2 lg:px-6 lg:py-4 text-center text-sm font-medium whitespace-nowrap">
                         <div className="flex flex-col items-center justify-center md:flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4">
                           <Link
                             to={`/users/${data._id}`}
-                            className="text-indigo-600 hover:text-indigo-900 border rounded-md border-black w-20 py-3 lg:py-2"
+                            className="text-indigo-600  hover:text-indigo-900 border rounded-md border-black w-20 py-3 lg:py-2"
                           >
                             Ver
                           </Link>

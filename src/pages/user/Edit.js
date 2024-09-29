@@ -4,6 +4,7 @@ import configAxios from "../../utils/configAxios";
 import { Layout } from "../../components/Layout";
 import { validateDpi } from "../../utils/functions";
 
+
 function Add() {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
@@ -38,12 +39,13 @@ function Add() {
       configAxios
       .patch(`http://localhost:8080/visitants/${id}`, data)
       .then(navigate("/"));
+      
     }
   }
   return (
     <Layout>
       <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
-        <h2 className="text-2xl font-bold">User Details</h2>
+        <h2 className="text-2xl font-bold">Detalles de visitante</h2>
         <form className="w-[50%] h-full flex flex-col mt-2">
           <input
             value={name}
@@ -74,7 +76,7 @@ function Add() {
             placeholder="Ingresa el número de DPI"
           />
           <button
-            className="bg-teal-600 outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"
+            className="bg-[#F7AD19] outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4 "
             type="submit"
             onClick={Update}
           >
