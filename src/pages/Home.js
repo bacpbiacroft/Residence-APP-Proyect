@@ -7,7 +7,7 @@ function Home() {
   const [users, setUsers] = useState([]);
 
   function loadUsers() {
-    configAxios.get("http://localhost:8080/visitants").then((res) => {
+    configAxios.get("https://residense-api.vercel.app/visitants").then((res) => {
       setUsers(res.data.reverse());
     });
   }
@@ -18,7 +18,7 @@ function Home() {
 
   function deleteUser(id) {
     configAxios
-      .delete(`http://localhost:8080/visitants/${id}`)
+      .delete(`https://residense-api.vercel.app/visitants/${id}`)
       .then(() => loadUsers()); // Fix potential issue: Ensure loadUsers is called as a callback
   }
 

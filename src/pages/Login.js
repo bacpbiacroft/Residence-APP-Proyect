@@ -12,7 +12,7 @@ const Login = () => {
 
   const submit = (data) => {
     axios
-      .post(`http://localhost:8080/auth/login`, data)
+      .post(`https://residense-api.vercel.app/auth/login`, data)
       .then((res) => {
         localStorage.setItem("token", res.data.authentication.sessionToken);
         navigate("/");

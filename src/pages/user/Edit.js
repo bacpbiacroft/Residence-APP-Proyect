@@ -14,7 +14,7 @@ function Add() {
   const { id } = useParams();
 
   useEffect(() => {
-    configAxios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
+    configAxios.get(`https://residense-api.vercel.app/visitants/${id}`).then((res) => {
       setName(res.data.name);
       setLastname(res.data.lastname);
       setHouse(res.data.house);
@@ -37,7 +37,7 @@ function Add() {
     const isValidDpi = validateDpi(dpi)
     if (isValidDpi) {
       configAxios
-      .patch(`http://localhost:8080/visitants/${id}`, data)
+      .patch(`https://residense-api.vercel.app/visitants/${id}`, data)
       .then(navigate("/"));
       
     }

@@ -10,7 +10,7 @@ function Users() {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    configAxios.get(`http://localhost:8080/visitants/${id}`).then((res) => {
+    configAxios.get(`https://residense-api.vercel.app/visitants/${id}`).then((res) => {
       setUser(res.data);
     });
   }, []); //ignorar

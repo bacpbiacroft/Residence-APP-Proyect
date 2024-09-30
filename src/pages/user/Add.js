@@ -24,7 +24,7 @@ function Add() {
     const isValidDpi = validateDpi(dpi)
     if (isValidDpi) {
       configAxios
-      .post("http://localhost:8080/visitants", data)
+      .post("https://residense-api.vercel.app/visitants", data)
       .then(navigate("/"));
     }
   }
